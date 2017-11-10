@@ -53,7 +53,7 @@ class Parameter {
     this.value = parameter.value;
     this.global = parameter.global;
     this.enumOptions = parameter.enumOptions;
-    this.queryBasedOption = parameter.queryBasedOption;
+    this.queryId = parameter.queryId;
   }
 
   get ngModel() {
@@ -201,7 +201,7 @@ function QueryResource($resource, $http, $q, $location, currentUser, QueryResult
         isArray: false,
         url: 'api/queries/:id/results.json',
       },
-    }
+    },
   );
 
   Query.newQuery = function newQuery() {
@@ -363,6 +363,6 @@ function QueryResource($resource, $http, $q, $location, currentUser, QueryResult
   return Query;
 }
 
-export default function (ngModule) {
+export default function init(ngModule) {
   ngModule.factory('Query', QueryResource);
 }
